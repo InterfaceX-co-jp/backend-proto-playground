@@ -44,7 +44,7 @@ message DeletePetRequest {
 
 message DeletePetResponse {}
 
-service ServicePetStore {
+service PetStoreService {
   rpc GetPet(GetPetRequest) returns (GetPetResponse) {}
   rpc PutPet(PutPetRequest) returns (PutPetResponse) {}
   rpc DeletePet(DeletePetRequest) returns (DeletePetResponse) {}
