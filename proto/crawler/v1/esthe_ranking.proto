@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pet.v1;
+
+message SyncTherapistsBySpanRequest {
+  uint32 start = 1;
+  uint32 end = 2;
+}
+
+message SyncTherapistsBySpanResponse {
+  repeated uint32 failed_ids = 1;
+}
+
+service EstheRankingService {
+  rpc SyncTherapistsBySpan(SyncTherapistsBySpanRequest) returns (SyncTherapistsBySpanResponse) {}
+}
