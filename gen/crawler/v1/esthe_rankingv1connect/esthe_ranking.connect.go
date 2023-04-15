@@ -2,7 +2,7 @@
 //
 // Source: crawler/v1/esthe_ranking.proto
 
-package petv1connect
+package esthe_rankingv1connect
 
 import (
 	context "context"
@@ -22,7 +22,7 @@ const _ = connect_go.IsAtLeastVersion0_1_0
 
 const (
 	// EstheRankingServiceName is the fully-qualified name of the EstheRankingService service.
-	EstheRankingServiceName = "pet.v1.EstheRankingService"
+	EstheRankingServiceName = "esthe_ranking.v1.EstheRankingService"
 )
 
 // These constants are the fully-qualified names of the RPCs defined in this package. They're
@@ -35,18 +35,18 @@ const (
 const (
 	// EstheRankingServiceSyncTherapistsBySpanProcedure is the fully-qualified name of the
 	// EstheRankingService's SyncTherapistsBySpan RPC.
-	EstheRankingServiceSyncTherapistsBySpanProcedure = "/pet.v1.EstheRankingService/SyncTherapistsBySpan"
+	EstheRankingServiceSyncTherapistsBySpanProcedure = "/esthe_ranking.v1.EstheRankingService/SyncTherapistsBySpan"
 )
 
-// EstheRankingServiceClient is a client for the pet.v1.EstheRankingService service.
+// EstheRankingServiceClient is a client for the esthe_ranking.v1.EstheRankingService service.
 type EstheRankingServiceClient interface {
 	SyncTherapistsBySpan(context.Context, *connect_go.Request[v1.SyncTherapistsBySpanRequest]) (*connect_go.Response[v1.SyncTherapistsBySpanResponse], error)
 }
 
-// NewEstheRankingServiceClient constructs a client for the pet.v1.EstheRankingService service. By
-// default, it uses the Connect protocol with the binary Protobuf Codec, asks for gzipped responses,
-// and sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply the
-// connect.WithGRPC() or connect.WithGRPCWeb() options.
+// NewEstheRankingServiceClient constructs a client for the esthe_ranking.v1.EstheRankingService
+// service. By default, it uses the Connect protocol with the binary Protobuf Codec, asks for
+// gzipped responses, and sends uncompressed requests. To use the gRPC or gRPC-Web protocols, supply
+// the connect.WithGRPC() or connect.WithGRPCWeb() options.
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
@@ -66,12 +66,13 @@ type estheRankingServiceClient struct {
 	syncTherapistsBySpan *connect_go.Client[v1.SyncTherapistsBySpanRequest, v1.SyncTherapistsBySpanResponse]
 }
 
-// SyncTherapistsBySpan calls pet.v1.EstheRankingService.SyncTherapistsBySpan.
+// SyncTherapistsBySpan calls esthe_ranking.v1.EstheRankingService.SyncTherapistsBySpan.
 func (c *estheRankingServiceClient) SyncTherapistsBySpan(ctx context.Context, req *connect_go.Request[v1.SyncTherapistsBySpanRequest]) (*connect_go.Response[v1.SyncTherapistsBySpanResponse], error) {
 	return c.syncTherapistsBySpan.CallUnary(ctx, req)
 }
 
-// EstheRankingServiceHandler is an implementation of the pet.v1.EstheRankingService service.
+// EstheRankingServiceHandler is an implementation of the esthe_ranking.v1.EstheRankingService
+// service.
 type EstheRankingServiceHandler interface {
 	SyncTherapistsBySpan(context.Context, *connect_go.Request[v1.SyncTherapistsBySpanRequest]) (*connect_go.Response[v1.SyncTherapistsBySpanResponse], error)
 }
@@ -88,12 +89,12 @@ func NewEstheRankingServiceHandler(svc EstheRankingServiceHandler, opts ...conne
 		svc.SyncTherapistsBySpan,
 		opts...,
 	))
-	return "/pet.v1.EstheRankingService/", mux
+	return "/esthe_ranking.v1.EstheRankingService/", mux
 }
 
 // UnimplementedEstheRankingServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedEstheRankingServiceHandler struct{}
 
 func (UnimplementedEstheRankingServiceHandler) SyncTherapistsBySpan(context.Context, *connect_go.Request[v1.SyncTherapistsBySpanRequest]) (*connect_go.Response[v1.SyncTherapistsBySpanResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("pet.v1.EstheRankingService.SyncTherapistsBySpan is not implemented"))
+	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("esthe_ranking.v1.EstheRankingService.SyncTherapistsBySpan is not implemented"))
 }
